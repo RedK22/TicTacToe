@@ -66,7 +66,9 @@ const checkWinner = function () {
   for (let i = 0; i < 9; i += 3) {
     if (board[i] && board[i] === board[i + 1] && board[i] === board[i + 2]) {
       highlightWinner([i, i + 1, i + 2]);
-      alert(`Player ${board[i]} won the game!`);
+      setTimeout(() => {
+        alert(`Player ${board[i]} won the game!`);
+      }, 750);
       console.log(`Winner: ${board[i]}`);
       winnerFound = true;
       gameActive = false;
@@ -78,7 +80,9 @@ const checkWinner = function () {
   for (let i = 0; i < 3; i++) {
     if (board[i] && board[i] === board[i + 3] && board[i] === board[i + 6]) {
       highlightWinner([i, i + 3, i + 6]);
-      alert(`Player ${board[i]} won the game!`);
+      setTimeout(() => {
+        alert(`Player ${board[i]} won the game!`);
+      }, 750);
       console.log(`Winner: ${board[i]}`);
       winnerFound = true;
       gameActive = false;
@@ -89,7 +93,9 @@ const checkWinner = function () {
   //! Check for a winner diagonally (top-left to bottom-right)
   if (board[0] && board[0] === board[4] && board[0] === board[8]) {
     highlightWinner([0, 4, 8]);
-    alert(`Player ${board[0]} won the game!`);
+    setTimeout(() => {
+      alert(`Player ${board[0]} won the game!`);
+    }, 750);
     console.log(`Winner: ${board[0]}`);
     winnerFound = true;
     gameActive = false;
@@ -98,8 +104,9 @@ const checkWinner = function () {
   //! Check for a winner diagonally (top-right to bottom-left)
   if (board[2] && board[2] === board[4] && board[2] === board[6]) {
     highlightWinner([2, 4, 6]);
-    alert(`Player ${board[2]} won the game!`);
-    console.log(`Winner: ${board[2]}`);
+    setTimeout(() => {
+      alert(`Player ${board[2]} won the game!`);
+    }, 750);
     winnerFound = true;
     gameActive = false;
   }
