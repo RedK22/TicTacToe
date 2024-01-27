@@ -35,6 +35,7 @@ const clickHandler = function (index) {
     }
   }
   checkWinner();
+
   turn.textContent = `Player ${player + 1}'s turn!`;
   // console.log(index);
   // console.log(board);
@@ -113,5 +114,19 @@ const checkWinner = function () {
 
   if (!winnerFound) {
     console.log("No winner yet");
+  }
+
+  checkFull();
+};
+
+////////////////////////////////////
+const checkFull = function () {
+  if (Array.from(box).some((b) => b.textContent == "")) {
+    console.log("At least one box is empty");
+  } else {
+    console.log("All boxes are filled");
+    setTimeout(() => {
+      alert("The game is a draw. Please reset and play again!");
+    }, 750);
   }
 };
