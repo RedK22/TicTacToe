@@ -4,6 +4,7 @@ const turn = document.querySelector(".turn");
 
 let player = 0;
 let board = [];
+let winnerFound = false;
 let gameActive = true;
 
 const highlightWinner = function (winningBoxes) {
@@ -61,8 +62,6 @@ btn.addEventListener("click", function () {
 
 //! Checking Winner
 const checkWinner = function () {
-  let winnerFound = false;
-
   //! Checking for a winner horizontally
   for (let i = 0; i < 9; i += 3) {
     if (board[i] && board[i] === board[i + 1] && board[i] === board[i + 2]) {
@@ -121,10 +120,11 @@ const checkWinner = function () {
 
 ////////////////////////////////////
 const checkFull = function () {
-  if (Array.from(box).some((b) => b.textContent == "")) {
+  if (!winnerFound && Array.from(box).some((b) => b.textContent == "")) {
     console.log("At least one box is empty");
-  } else {
+  } else if (!winnerFound) {
     console.log("All boxes are filled");
+    gameActive = false;
     setTimeout(() => {
       alert("The game is a draw. Please reset and play again!");
     }, 750);
