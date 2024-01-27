@@ -126,7 +126,7 @@ const checkFull = function () {
     console.log("All boxes are filled");
     gameActive = false;
     setTimeout(() => {
-      alert("The game is a draw. Please reset and play again!");
+      alert("The game ended in a draw. Please reset and play again!");
     }, 750);
   }
 };
